@@ -16,6 +16,8 @@ For init project clone this repository
 
 - ``go get -u github.com/gorilla/mux``
 
+- `go get -u github.com/dgraph-io/dgo/v210`
+
 CompileDaemon:
     
 - ``go get github.com/githubnemo/CompileDaemon``
