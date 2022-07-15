@@ -18,6 +18,13 @@ For init project clone this repository
 
 - `go get -u github.com/dgraph-io/dgo/v210`
 
+- `go get github.com/joho/godotenv/cmd/godotenv`
+  
+  go >= 1.17
+
+- `go install github.com/joho/godotenv/cmd/godotenv@latest`
+
+
 CompileDaemon:
     
 - ``go get github.com/githubnemo/CompileDaemon``
