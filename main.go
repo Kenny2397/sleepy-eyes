@@ -3,11 +3,13 @@ package main
 import (
 	"context"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/Kenny2397/visual-programming/handlers"
 	"github.com/Kenny2397/visual-programming/server"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -41,6 +43,26 @@ func main() {
 }
 
 func BindRoutes(s server.Server, r *chi.Mux) {
+
+	// Basic CORS
+	// for more ideas, see: https://developer.github.com/v3/#cross-origin-resource-sharing
+	r.Use(cors.Handler(cors.Options{
+		// AllowedOrigins:   []string{"https://foo.com"}, // Use this to allow specific origin hosts
+		AllowedOrigins:   []string{"https://*", "http://*"},
+		AllowOriginFunc:  func(r *http.Request, origin string) bool { return true },
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		ExposedHeaders:   []string{"Link"},
+		AllowCredentials: false,
+		MaxAge:           300, // Maximum value not ignored by any of major browsers
+	}))
+
 	// r.HandleFunc("/", handlers.HomeHandler(s)).Methods(http.MethodGet)
 	r.Get("/", handlers.HomeHandler(s))
+	r.Post("/new", handlers.CreateDrawflow(s))
+	r.Get("/drawflows", handlers.ReadAll(s))
+	r.Get("/drawflow/{if}", handlers.GetDrawflowByIdg(s))
+	r.Delete("/drawflow/{if}", handlers.DeleteDrawflowByIdg(s))
+	
+	r.Post("/run", handlers.RunProgram(s))
 }

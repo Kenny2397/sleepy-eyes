@@ -6,9 +6,11 @@ require (
 	github.com/dgraph-io/dgo/v200 v200.0.0-20210401091508-95bfd74de60e // indirect
 	github.com/dgraph-io/dgo/v210 v210.0.0-20220113041351-ba0e5dfc4c3e // indirect
 	github.com/go-chi/chi/v5 v5.0.7 // indirect
+	github.com/go-chi/cors v1.2.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
+	github.com/lib/pq v1.10.6 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	golang.org/x/net v0.0.0-20220708220712-1185a9018129 // indirect
 	golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e // indirect
