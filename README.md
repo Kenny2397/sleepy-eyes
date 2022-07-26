@@ -62,6 +62,9 @@ pertenece a uno de los principios de SOLID
 
 ## Instalacion dgraph
 
+> Ratel localhost:8080
+
+![dgraph](assets/img/Dgrpah.png)
 
 ## Install Dgraph DB with Docker
 
