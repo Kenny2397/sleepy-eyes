@@ -33,8 +33,49 @@ For go 1.18
 
 - `go install github.com/githubnemo/CompileDaemon@latest`
 
+- `CompileDaemon`
+
 - ``CompileDaemon -command="WORKING_DIRECTORY.exe"``
+
+- `CompileDaemon -command="visual-programming.exe"`
 
 ### Run Project
 
 ``go run main.go``
+
+### Patron repository
+- concreto  -> handler -> GetUserByIdPostgres -> ... . ... . .. .. . . 
+  el codigo es volátil 
+
+- Abstraccion
+- handler - GetUserById -> User
+        -  Postgres
+        - MongoDB
+        - ...
+        
+  inyeccion de dependencias:      
+        - Postgres
+        - MongoDB
+        - ...
+
+pertenece a uno de los principios de SOLID
+
+## Instalacion dgraph
+
+
+## Install Dgraph DB with Docker
+
+> docker run --rm -it -p "8080:8080" -p "9080:9080" -p "8000:8000" -v ~/dgraph:/dgraph "dgraph/standalone:v21.12.0"
+
+
+- port: 8000 -> UI
+- port: 8080 -> RESTAPI
+
+## Flujo de REST API
+
+principal -> main
+
+
+## Para implementar en Postgres
+
+> go get github.com/lib/pq
