@@ -4,11 +4,13 @@ import (
 	"context"
 	"log"
 	"net/http"
+
 	"os"
 
 	"github.com/Kenny2397/visual-programming/handlers"
 	"github.com/Kenny2397/visual-programming/server"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 )
@@ -52,10 +54,18 @@ func BindRoutes(s server.Server, r *chi.Mux) {
 		AllowOriginFunc:  func(r *http.Request, origin string) bool { return true },
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
-		ExposedHeaders:   []string{"Link"},
-		AllowCredentials: false,
+		ExposedHeaders:   []string{"Link", "Access-Control-Allow-Headers", "Accept", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization"},
+		AllowCredentials: true,
 		MaxAge:           300, // Maximum value not ignored by any of major browsers
 	}))
+
+	// handler := cors.Default().Handler(r)
+
+	r.Use(
+		middleware.Logger,
+		middleware.Recoverer,
+		// cors.Default().Handler,
+	)
 
 	// r.HandleFunc("/", handlers.HomeHandler(s)).Methods(http.MethodGet)
 	r.Get("/", handlers.HomeHandler(s))
@@ -63,6 +73,7 @@ func BindRoutes(s server.Server, r *chi.Mux) {
 	r.Get("/drawflows", handlers.ReadAll(s))
 	r.Get("/drawflow/{if}", handlers.GetDrawflowByIdg(s))
 	r.Delete("/drawflow/{if}", handlers.DeleteDrawflowByIdg(s))
-	
+
 	r.Post("/run", handlers.RunProgram(s))
+	// r.Get("/execute/{pythonCode}", handlers.ExecuteProgram(s))
 }
