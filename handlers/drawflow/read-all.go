@@ -20,7 +20,9 @@ func GetAllDrawflows(s server.Server) http.HandlerFunc {
 				data{
 					id
 					name
-					data
+					data{
+						numbervalue
+					}
 					class
 					html
 					typenode
