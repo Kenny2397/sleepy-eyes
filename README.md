@@ -8,13 +8,13 @@ For init project clone this repository
 
 - initilize mod
 
-    ``go mod init kenny.com/api/gorilla-mux``
+    ``go mod init kenny.com/truora/drawflow``
 
 ### Install dependencies
 
 - `go get -u github.com/go-chi/chi/v5`
 
-- ``go get -u github.com/gorilla/mux``
+<!-- - ``go get -u github.com/gorilla/mux`` -->
 
 - `go get -u github.com/dgraph-io/dgo/v210`
 
@@ -35,14 +35,17 @@ For go 1.18
 
 - `CompileDaemon`
 
-- ``CompileDaemon -command="WORKING_DIRECTORY.exe"``
+<!-- - ``CompileDaemon -command="WORKING_DIRECTORY.exe"`` -->
 
-- `CompileDaemon -command="visual-programming.exe"`
+<!-- - `CompileDaemon -command="visual-programming.exe"` -->
 
 ### Run Project
 
 ``go run main.go``
 
+or 
+- `CompileDaemon`
+- ``CompileDaemon -command="WORKING_DIRECTORY.exe"``
 ### Patron repository
 - concreto  -> handler -> GetUserByIdPostgres -> ... . ... . .. .. . . 
   el codigo es volátil 
@@ -64,7 +67,7 @@ pertenece a uno de los principios de SOLID
 
 > Ratel localhost:8080
 
-![dgraph](assets/img/Dgrpah.png)
+![dgraph](assets/img/Dgrpah.jpg)
 
 ## Install Dgraph DB with Docker
 
@@ -73,7 +76,7 @@ pertenece a uno de los principios de SOLID
 
 - port: 8000 -> UI
 - port: 8080 -> RESTAPI
-
+<!-- 
 ## Flujo de REST API
 
 principal -> main
@@ -81,4 +84,4 @@ principal -> main
 
 ## Para implementar en Postgres
 
-> go get github.com/lib/pq
+> go get github.com/lib/pq -->
