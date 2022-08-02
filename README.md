@@ -1,14 +1,15 @@
 # Golang visual Programming backend
 
 For init project clone this repository
+> cd sleepy-eyes
+> go install
 
-- then create main.go file
+Getting started
 
-    ``mkdir main.go``
-
+Install dependencies from scratch
 - initilize mod
 
-    ``go mod init kenny.com/truora/drawflow``
+    ``go mod init github.com/Kenny2397/visual-programming``
 
 ### Install dependencies
 
@@ -63,9 +64,8 @@ or
 
 pertenece a uno de los principios de SOLID
 
-## Instalacion dgraph
-
-> Ratel localhost:8080
+## Dgraph
+Ratel localhost:8080
 
 ![dgraph](assets/img/Dgrpah.jpg)
 

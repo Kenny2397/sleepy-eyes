@@ -71,8 +71,8 @@ func BindRoutes(s server.Server, r *chi.Mux) {
 	r.Get("/", handlers.HomeHandler(s))
 	r.Post("/new", handlers.CreateDrawflow(s))
 	r.Get("/drawflows", handlers.ReadAll(s))
-	r.Get("/drawflow/{if}", handlers.GetDrawflowByIdg(s))
-	r.Delete("/drawflow/{if}", handlers.DeleteDrawflowByIdg(s))
+	r.Get("/drawflow/{if}", handlers.ReadByIdg(s))
+	// r.Delete("/drawflow/{if}", handlers.DeleteDrawflowByIdg(s))
 
 	r.Post("/run", handlers.RunProgram(s))
 	// r.Get("/execute/{pythonCode}", handlers.ExecuteProgram(s))

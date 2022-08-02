@@ -45,7 +45,7 @@ func GetDrawflowByIdg(s server.Server) http.HandlerFunc {
             output_1{
               connections{
                 node
-                input
+                output
                 }          
             }
           }			
